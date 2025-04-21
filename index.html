@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Para o meu amor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('IMG_1034 (1).jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .mensagem {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      animation: fadeIn 4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .coracoes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .coracao {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/6v4Kj0P.png') no-repeat center;
+      background-size: contain;
+      animation: cair 10s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes cair {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+    .brilhos {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="brilhos"></div>
+  <div class="coracoes"></div>
+
+  <div class="mensagem">
+    <h1>Para o meu amor</h1>
+    <p>
+      Obrigada por todos o momentos bons e até mesmo aqueles que não são tão agradáveis,
+      pois eles são os que tornam a gente mais maduros para enfrentarmos algo juntos.
+      Eu amo o cuidado que você tem comigo, mesmo eu sendo chata às vezes, eu quero que
+      você saiba que eu sempre vou estar com você pra tudo e em todos os momentos de
+      nossas vida, que possamos realizar nossos sonhos juntos e construir uma família linda,
+      meu amor. Eu te amo muito, tenho orgulho do homem que você é, trabalhador,
+      inteligente, amoroso e muito mais. ❤️
+    </p>
+  </div>
+
+  <audio id="musica" autoplay loop>
+    <source src="AUDIO-2025-04-21-15-22-34.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const musica = document.getElementById('musica');
+    musica.volume = 0.2;
+
+    function criarCoracoes() {
+      for (let i = 0; i < 20; i++) {
+        let coracao = document.createElement('div');
+        coracao.className = 'coracao';
+        coracao.style.left = Math.random() * 100 + '%';
+        coracao.style.animationDuration = (5 + Math.random() * 5) + 's';
+        coracao.style.opacity = Math.random();
+        document.querySelector('.coracoes').appendChild(coracao);
+      }
+    }
+    criarCoracoes();
+  </script>
+</body>
+</html>
